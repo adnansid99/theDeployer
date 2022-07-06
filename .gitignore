@@ -1,6 +1,6 @@
-venv
-config.env
+# created by virtualenv automatically
+Lib
+Scripts
 __pycache__
-*.session
-test*.*
-splfil/
+/pyvenv.cfg
+info.txt
