@@ -1,6 +1,14 @@
-# created by virtualenv automatically
-Lib
-Scripts
-__pycache__
-/pyvenv.cfg
-info.txt
+config.env
+*.pyc
+downloads/*
+download/*
+data*
+.vscode
+.idea
+*.json
+*.pickle
+log.txt
+accounts/*
+drives.txt
+drive_list
+/temp.py
