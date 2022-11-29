@@ -11,7 +11,7 @@ ENV LANGUAGE=en_US:en \
     LANG=en_US.UTF-8
 
 RUN apt-get -qq update && apt-get -qq install -y \
-    python3 python3-pip locales libmagic-dev \
+    git python3 python3-pip locales libmagic-dev \
     p7zip-full p7zip-rar unzip && \
     locale-gen en_US.UTF-8
 
