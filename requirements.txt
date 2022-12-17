@@ -1,7 +1,6 @@
 dnspython
 google-api-python-client
 google-auth-oauthlib
-lxml
 psutil
 pymongo
 python-dotenv
@@ -10,4 +9,3 @@ python-telegram-bot
 requests
 telegraph
 tenacity
-tornado==6.0.4
