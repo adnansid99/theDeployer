@@ -1,5 +1,5 @@
 from logging import FileHandler, StreamHandler, INFO, basicConfig, error as log_error, info as log_info
-from os import path as ospath, environ
+from os import path as ospath, environ, remove
 from subprocess import run as srun
 from requests import get as rget
 from dotenv import load_dotenv, dotenv_values
@@ -9,21 +9,12 @@ if ospath.exists('log.txt'):
     with open('log.txt', 'r+') as f:
         f.truncate(0)
 
+if ospath.exists('rlog.txt'):
+    remove('rlog.txt')
+
 basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
             handlers=[FileHandler('log.txt'), StreamHandler()],
             level=INFO)
-
-CONFIG_FILE_URL = 'https://gist.githubusercontent.com/adnansid99/3ef7d9d2be75fe3c1f433eb90b432061/raw/config.env'
-if len(CONFIG_FILE_URL) != 0:
-    try:
-        res = rget(CONFIG_FILE_URL)
-        if res.status_code == 200:
-            with open('config.env', 'wb+') as f:
-                f.write(res.content)
-        else:
-            log_error(f"Failed to download config.env {res.status_code}")
-    except Exception as e:
-        log_error(f"CONFIG_FILE_URL: {e}")
 
 load_dotenv('config.env', override=True)
 
